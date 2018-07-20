@@ -1,2 +1,4 @@
 %h1 Tracks
-%p List of tracks goes here
+%ui#tracks
+  - @tracks.each do |track|
+    = track_to_li(track)
