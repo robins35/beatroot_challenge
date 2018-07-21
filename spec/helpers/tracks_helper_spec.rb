@@ -11,5 +11,28 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe TracksHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:track) {
+    {
+      "id"=>2,
+      "title"=>"Sweet Lorraine",
+      "url_token"=>"1a58ce9b-376b-4efe-ae7c-bb83f34f1590",
+      "artist"=> {
+        "id"=>8,
+        "writer"=>false,
+        "name"=>"Tony Crombie feat. Robert Robertson",
+      },
+    }
+  }
+
+  describe "#track_to_li" do
+    it "includes the tracks title" do
+      expect(helper.track_to_li(track)).to include("Sweet Lorraine")
+    end
+  end
+
+  describe "#artist" do
+    it "returns the track's artist name" do
+      expect(helper.artist(track)).to eq("Tony Crombie feat. Robert Robertson")
+    end
+  end
 end
