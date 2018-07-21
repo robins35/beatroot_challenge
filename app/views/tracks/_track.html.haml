@@ -2,7 +2,7 @@
   .dtc.tl
     %p= track_description(track)
   .dtc.tc
-    = link_to "/tracks/#{track['id']}", target: "_blank", class: "download_track_btn f6 link dim ph3 pv2 mb2 dib white bg-purple" do
+    = link_to "/tracks/#{track['id']}", class: "download_track_btn f6 link dim ph3 pv2 mb2 dib white bg-purple" do
       Download Track Data
   .dtc.tc
     = link_to "/tracks/#{track['id']}.xml", target: "_blank", class: "download_track_btn f6 link dim ph3 pv2 mb2 dib white bg-purple" do
