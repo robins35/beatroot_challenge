@@ -24,9 +24,10 @@ RSpec.describe TracksHelper, type: :helper do
     }
   }
 
-  describe "#track_to_li" do
+  describe "#track_description" do
     it "includes the tracks title" do
-      expect(helper.track_to_li(track)).to include("Sweet Lorraine")
+      expect(helper.track_description(track)).to include("Sweet Lorraine")
+      expect(helper.track_description(track)).to include("Tony Crombie feat. Robert Robertson")
     end
   end
 
