@@ -1,4 +1,4 @@
-%h1 Tracks
-%ul#tracks
-  - @tracks.each do |track|
-    = track_to_li(track)
+%h1.tc.f3.bold Tracks
+
+%ul#tracks.tracks
+  = render partial: "track", collection: @tracks

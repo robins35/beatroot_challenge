@@ -1,0 +1,9 @@
+.track.dt.dt--fixed.striped--light-gray{id: "track_#{track['id']}", data: { id: track['id'] }}
+  .dtc.tl
+    %p= track_description(track)
+  .dtc.tc
+    = link_to "/tracks/#{track['id']}", target: "_blank", class: "download_track_btn f6 link dim ph3 pv2 mb2 dib white bg-purple" do
+      Download Track Data
+  .dtc.tc
+    = link_to "/tracks/#{track['id']}.xml", target: "_blank", class: "download_track_btn f6 link dim ph3 pv2 mb2 dib white bg-purple" do
+      View Track Data

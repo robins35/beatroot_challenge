@@ -1,11 +1,6 @@
 module TracksHelper
-  def track_to_li(track)
-    id = track["id"]
-    content_tag :li, class: "track", id: "track-#{id}" do
-      content_tag :p do
-        "#{track["title"]} - #{artist(track)}"
-      end
-    end
+  def track_description(track)
+    "#{track['title']} - #{artist(track)}"
   end
 
   def artist(track)
