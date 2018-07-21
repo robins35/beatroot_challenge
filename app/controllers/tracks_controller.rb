@@ -12,9 +12,28 @@ class TracksController < ApplicationController
   end
 
   def show
-    #track_id = nil
+    track_id = params[:id]
+    url = "#{beatroot_api_url}/tracks/#{track_id}"
+    header = { "Authorization" => "Token token=\"#{auth_token}\""}
 
-    url = "#{beatroot_api_url}/track/#{track_id}"
+    response = HTTParty.get(url, headers: header)
+
+    if track_id && response.success?
+      track_xml = response.parsed_response["track"].to_xml(root: "track", skip_types: true)
+
+      respond_to do |format|
+        format.html {
+          send_data track_xml, filename: "track_#{track_id}.xml",
+            type: 'application/xml',
+            disposition: 'attachment'
+        }
+        format.xml {
+          render xml: track_xml
+        }
+      end
+    else
+      head :not_found
+    end
   end
 
   private
